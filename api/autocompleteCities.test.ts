@@ -19,7 +19,7 @@ describe("getCities function", () => {
 
         // Check that the fetch function was called with the correct URL
         expect(fetch).toHaveBeenCalledWith(
-            `http://api.weatherapi.com/v1/search.json?key=5280a30432fb4a2cb39131417231310&format=json&accept-language=en-US&q=${query}`
+            `https://api.weatherapi.com/v1/search.json?key=5280a30432fb4a2cb39131417231310&format=json&accept-language=en-US&q=${query}`
         );
 
         // Check that the function returned the expected data
