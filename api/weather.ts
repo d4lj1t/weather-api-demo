@@ -1,6 +1,6 @@
 import {Weather} from "@/types/weather";
 
-const baseUrl = "http://api.weatherapi.com/v1/current.json";
+const baseUrl = "https://api.weatherapi.com/v1/current.json";
 
 export async function getWeather(query: string) {
     const qs = query;

@@ -1,4 +1,4 @@
-const baseUrl = "http://api.weatherapi.com/v1/search.json";
+const baseUrl = "https://api.weatherapi.com/v1/search.json";
 import { City } from "@/types/city";
 
 export async function getCities(query: string) {
