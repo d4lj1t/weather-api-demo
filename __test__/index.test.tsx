@@ -1,9 +1,8 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import Home from "./";
+import Home from "@/pages/index";
 import { City } from "@/types/city";
 
-// Mock the SearchBar and WeatherDisplay components
 jest.mock("../components/SearchBar", () => {
     return function MockedSearchBar() {
         return <div data-testid="search-bar-mock"></div>;
@@ -23,10 +22,6 @@ describe("Home Component", () => {
         const { getByText, getByTestId } = render(
             <Home initialCity={initialCity} />
         );
-
-        // Check that the component renders the titlew
-
-        // Check that the SearchBar and WeatherDisplay components are rendered
 
         expect(getByTestId("search-bar-mock")).toBeInTheDocument();
         expect(getByTestId("weather-display-mock")).toBeInTheDocument();
