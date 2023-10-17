@@ -7,7 +7,7 @@ import {Weather} from "@/types/weather";
 export default function WeatherDisplay() {
     const { city } = useContext(MyContext);
 
-    const [weatherData, setWeatherData] = useState<Weather[]>([]);
+    const [weatherData, setWeatherData] = useState<Weather>();
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
@@ -30,7 +30,7 @@ export default function WeatherDisplay() {
         void fetchWeatherData();
     }, [city]);
 
-    const { current } = weatherData[0] ?? {};
+    const { current } = weatherData ?? {};
 
     return (
         <div className={styles.container} data-testid="weatherDisplay">
