@@ -7,7 +7,7 @@ import {Weather} from "@/types/weather";
 export default function WeatherDisplay() {
     const { city } = useContext(MyContext);
 
-    const [weatherData, setWeatherData] = useState<Weather[]>(null);
+    const [weatherData, setWeatherData] = useState<Weather[]>([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
