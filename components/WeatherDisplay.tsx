@@ -30,7 +30,7 @@ export default function WeatherDisplay() {
         void fetchWeatherData();
     }, [city]);
 
-    const { current } = weatherData ?? {};
+    const { current } = weatherData[0] ?? {};
 
     return (
         <div className={styles.container} data-testid="weatherDisplay">

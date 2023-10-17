@@ -4,13 +4,14 @@ import WeatherDisplay from "./WeatherDisplay";
 import { MyContext } from "@/api/context";
 
 jest.mock("../api/weather", () => ({
-    getWeather: jest.fn().mockReturnValue({
-        current: {
-            temp_c: 25,
-            humidity: 60,
-            wind_mph: 5,
-        },
-    }),
+    getWeather: jest.fn().mockReturnValue([{
+            current: {
+                temp_c: 25,
+                humidity: 60,
+                wind_mph: 5,
+            }
+        }]
+    ),
 }));
 
 describe("WeatherDisplay Component", () => {
