@@ -6,16 +6,13 @@ import { type Weather } from '@/types/weather'
 
 export default function WeatherDisplay (): React.ReactNode {
   const { city } = useContext(MyContext)
-
-  console.log('cityAbove', city)
-
   const [weatherData, setWeatherData] = useState<Weather>()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     const fetchWeatherData = async (): Promise<void> => {
-      if ((city?.name) !== '') {
+      if (city.name !== '') {
         setLoading(true)
         setError(null)
         try {
@@ -45,7 +42,7 @@ export default function WeatherDisplay (): React.ReactNode {
                     <div>error fetching data</div>
                 )}
             </div>
-            {city?.name !== '' && (
+            {city.name !== '' && (
               <div>
                   {`${city.name} - ${city.country}`}
               </div>

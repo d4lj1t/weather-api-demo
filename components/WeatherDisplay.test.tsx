@@ -3,31 +3,35 @@ import { render, act, screen, waitFor } from '@testing-library/react'
 import WeatherDisplay from './WeatherDisplay'
 import { MyContext } from '@/api/context'
 
+import * as weatherModule from '../api/weather'
+
+jest.setTimeout(10000)
+
 jest.mock('../api/weather', () => ({
-  getWeather: jest.fn().mockReturnValue({
-    current: {
-      temp_c: 25,
-      humidity: 60,
-      wind_mph: 5
-    }
-  }
-  )
+  ...(jest.requireActual('../api/weather')),
+  getWeather: jest.fn()
 }))
 
 describe('WeatherDisplay Component', () => {
+  beforeEach(() => {
+    jest.clearAllMocks()
+  })
+
   it('renders loading state when fetching data', async () => {
+    jest.spyOn(weatherModule, 'getWeather').mockReturnValue(new Promise(() => {}))
+
     await act(async () => {
       render(
-              <MyContext.Provider
-                  value={{
-                    city: { name: 'New York', country: 'US' },
-                    setCity: jest.fn(),
-                    cityHistory: [],
-                    setCityHistory: jest.fn()
-                  }}
-              >
-                  <WeatherDisplay />
-              </MyContext.Provider>
+                <MyContext.Provider
+                    value={{
+                      city: { name: 'New York', country: 'US' },
+                      setCity: jest.fn(),
+                      cityHistory: [],
+                      setCityHistory: jest.fn()
+                    }}
+                >
+                    <WeatherDisplay />
+                </MyContext.Provider>
       )
     })
 
@@ -37,18 +41,26 @@ describe('WeatherDisplay Component', () => {
   })
 
   it('renders weather data when available', async () => {
+    jest.spyOn(weatherModule, 'getWeather').mockResolvedValue({
+      current: {
+        temp_c: '25',
+        humidity: '60',
+        wind_mph: '5'
+      }
+    })
+
     await act(async () => {
       render(
-          <MyContext.Provider
-              value={{
-                city: { name: 'New York', country: 'US' },
-                setCity: jest.fn(),
-                cityHistory: [],
-                setCityHistory: jest.fn()
-              }}
-          >
-            <WeatherDisplay />
-          </MyContext.Provider>
+                <MyContext.Provider
+                    value={{
+                      city: { name: 'New York', country: 'US' },
+                      setCity: jest.fn(),
+                      cityHistory: [],
+                      setCityHistory: jest.fn()
+                    }}
+                >
+                    <WeatherDisplay />
+                </MyContext.Provider>
       )
     })
 
