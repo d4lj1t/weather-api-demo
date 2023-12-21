@@ -47,12 +47,11 @@ export default function WeatherDisplay (): React.ReactNode {
             </div>
             {city?.name !== '' && (
               <div>
-                {console.log('cityssss  ', city?)}
-                  {/*{`${city.name} - ${city.country}`}*/}
+                  {`${city.name} - ${city.country}`}
               </div>
             )}
 
-            {(current) && (
+            {(current != null) && (
                 <>
                     <div>{`Temperature: ${current.temp_c} degrees celsius`}</div>
                     <div>{`Humidity: ${current.humidity}%`}</div>
