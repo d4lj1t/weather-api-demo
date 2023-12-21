@@ -52,7 +52,7 @@ export default function WeatherDisplay (): React.ReactNode {
               </div>
             )}
 
-            {(current != null) && (
+            {(current) && (
                 <>
                     <div>{`Temperature: ${current.temp_c} degrees celsius`}</div>
                     <div>{`Humidity: ${current.humidity}%`}</div>
