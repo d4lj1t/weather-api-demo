@@ -45,10 +45,6 @@
     }
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
-      "eslint",
-      "git add"
-    ],
-    "*.js": ["eslint", "git add"]
+    "*.{js,jsx,ts,tsx}": ["eslint", "git add"]
   }
 }
