@@ -1,18 +1,20 @@
-import Head from "next/head";
-import {useEffect, useRef, useState} from "react";
-import styles from "@/styles/Home.module.css";
-import SearchBar from "@/components/SearchBar";
-import { MyContext } from "@/api/context";
-import WeatherDisplay from "@/components/WeatherDisplay";
-import {City} from "@/types/city";
+import React, { useState } from 'react'
+import Head from 'next/head'
+import styles from '@/styles/Home.module.css'
+import SearchBar from '@/components/SearchBar'
+import { MyContext } from '@/api/context'
+import WeatherDisplay from '@/components/WeatherDisplay'
+import PreviousSearches from '@/components/PreviousSearches'
+import { type City, defaultCity } from '@/types/city'
 
 interface HomeProps {
-    initialCity: City;
+  initialCity: City
 }
 
-export default function Home({initialCity}: HomeProps) {
-    const [city, setCity] = useState(initialCity);
-    return (
+export default function Home ({ initialCity }: HomeProps): React.ReactNode {
+  const [city, setCity] = useState<City>(defaultCity)
+  const [cityHistory, setCityHistory] = useState<City[]>([])
+  return (
         <>
             <Head>
                 <title>Weather Api Demo</title>
@@ -20,12 +22,13 @@ export default function Home({initialCity}: HomeProps) {
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <link rel="icon" href="/public/favicon.ico"/>
             </Head>
-            <MyContext.Provider value={{city, setCity}}>
+            <MyContext.Provider value={{ city, setCity, cityHistory, setCityHistory }}>
                 <main className={styles.main}>
                     <SearchBar />
                     <WeatherDisplay />
+                    <PreviousSearches />
                 </main>
             </MyContext.Provider>
         </>
-    )
+  )
 }

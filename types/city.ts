@@ -1,11 +1,9 @@
 export const defaultCity: City = {
-    id: "",
-    name: "",
-    country: "",
-};
+  name: '',
+  country: ''
+}
 
-export type City = {
-    id: string,
-    name: string,
-    country: string,
-};
+export interface City {
+  name: string
+  country: string
+}
