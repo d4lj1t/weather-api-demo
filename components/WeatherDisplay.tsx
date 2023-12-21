@@ -47,7 +47,7 @@ export default function WeatherDisplay (): React.ReactNode {
             </div>
             {city?.name !== '' && (
               <div>
-                {console.log('cityss  ', city?)}
+                {console.log('cityssss  ', city?)}
                   {/*{`${city.name} - ${city.country}`}*/}
               </div>
             )}
