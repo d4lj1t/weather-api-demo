@@ -48,6 +48,7 @@
     "*.{ts,tsx}": [
       "eslint",
       "git add"
-    ]
+    ],
+    "*.js": ["eslint", "git add"]
   }
 }
