@@ -22,16 +22,16 @@ describe('WeatherDisplay Component', () => {
 
     await act(async () => {
       render(
-                <MyContext.Provider
-                    value={{
-                      city: { name: 'New York', country: 'US' },
-                      setCity: jest.fn(),
-                      cityHistory: [],
-                      setCityHistory: jest.fn()
-                    }}
-                >
-                    <WeatherDisplay />
-                </MyContext.Provider>
+        <MyContext.Provider
+            value={{
+              city: { name: 'New York', country: 'US' },
+              setCity: jest.fn(),
+              cityHistory: [],
+              setCityHistory: jest.fn()
+            }}
+        >
+            <WeatherDisplay />
+        </MyContext.Provider>
       )
     })
 
@@ -51,16 +51,16 @@ describe('WeatherDisplay Component', () => {
 
     await act(async () => {
       render(
-                <MyContext.Provider
-                    value={{
-                      city: { name: 'New York', country: 'US' },
-                      setCity: jest.fn(),
-                      cityHistory: [],
-                      setCityHistory: jest.fn()
-                    }}
-                >
-                    <WeatherDisplay />
-                </MyContext.Provider>
+        <MyContext.Provider
+            value={{
+              city: { name: 'New York', country: 'US' },
+              setCity: jest.fn(),
+              cityHistory: [],
+              setCityHistory: jest.fn()
+            }}
+        >
+            <WeatherDisplay />
+        </MyContext.Provider>
       )
     })
 
