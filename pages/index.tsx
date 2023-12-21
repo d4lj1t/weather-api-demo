@@ -6,7 +6,7 @@ import { MyContext } from '@/api/context'
 import WeatherDisplay from '@/components/WeatherDisplay'
 import PreviousSearches from '@/components/PreviousSearches'
 import { type City, defaultCity } from '@/types/city'
-import { type PreviousSearchesType, defaultPreviousSearches } from '@/types/previousSearches'
+import { type PreviousSearchesType } from '@/types/previousSearches'
 
 interface HomeProps {
   initialCity: City
@@ -14,7 +14,7 @@ interface HomeProps {
 
 export default function Home ({ initialCity }: HomeProps): React.ReactNode {
   const [city, setCity] = useState<City>(defaultCity)
-  const [cityHistory, setCityHistory] = useState<PreviousSearchesType[]>([defaultPreviousSearches])
+  const [cityHistory, setCityHistory] = useState<PreviousSearchesType[]>([])
   return (
         <>
             <Head>

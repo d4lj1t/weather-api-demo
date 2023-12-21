@@ -8,6 +8,7 @@ import { type PreviousSearchesType } from '@/types/previousSearches'
 export default function WeatherDisplay (): React.ReactNode {
   const { city } = useContext(MyContext)
   const { setCityHistory } = useContext(MyContext)
+  const [prevSearch, setPrevSearch] = useState<object | null>(null)
   const [weatherData, setWeatherData] = useState<Weather>()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -22,13 +23,16 @@ export default function WeatherDisplay (): React.ReactNode {
           setWeatherData(data)
           const newCityHistory = {
             name: city.name,
-            country: city?.country,
-            temperature: current?.temp_c,
-            humidity: current?.humidity,
-            windSpeed: current?.wind_mph
+            country: city.country,
+            temperature: data?.current.temp_c,
+            humidity: data?.current.humidity,
+            windSpeed: data?.current.wind_mph
           }
+          setPrevSearch(newCityHistory)
 
-          setCityHistory(prevCityHistory => [newCityHistory, ...prevCityHistory] as PreviousSearchesType[])
+          if (prevSearch !== null) {
+            setCityHistory(prevCityHistory => [prevSearch, ...prevCityHistory] as PreviousSearchesType[])
+          }
         } catch (error) {
           setError('Failed to fetch weather data.')
         } finally {

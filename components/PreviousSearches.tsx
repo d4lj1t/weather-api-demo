@@ -5,11 +5,12 @@ import { MyContext } from '@/api/context'
 export default function PreviousSearches (): React.ReactNode {
   const { cityHistory } = useContext(MyContext)
   return (
+      <div>
+        <h1 className={styles.heading}>Previous Searches</h1>
         <div className={styles.container}>
-            <h1>Previous Searches</h1>
             {cityHistory.map((city, index) => {
               return (city.temperature !== '' && (city.temperature !== undefined) && (
-                <div key={index}>
+                <div className={styles.innerContainer} key={index}>
                     {city.name} - {city.country}
                     <div>{`Temperature: ${city.temperature} degrees celsius`}</div>
                     <div>{`Humidity: ${city.humidity}%`}</div>
@@ -18,5 +19,6 @@ export default function PreviousSearches (): React.ReactNode {
               ))
             })}
         </div>
+      </div>
   )
 }

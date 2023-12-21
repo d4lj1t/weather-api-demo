@@ -1,7 +1,7 @@
 import type React from 'react'
 import { createContext } from 'react'
 import { type City, defaultCity } from '@/types/city'
-import { type PreviousSearchesType, defaultPreviousSearches } from '@/types/previousSearches'
+import { type PreviousSearchesType } from '@/types/previousSearches'
 
 interface MyContextType {
   city: City
@@ -12,6 +12,6 @@ interface MyContextType {
 export const MyContext = createContext<MyContextType>({
   city: defaultCity,
   setCity: () => {},
-  cityHistory: [defaultPreviousSearches],
+  cityHistory: [],
   setCityHistory: () => {}
 })
