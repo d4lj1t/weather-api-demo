@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, waitFor, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import WeatherDisplay from './WeatherDisplay'
 import { MyContext } from '@/api/context'
 
