@@ -1,7 +1,14 @@
-
 .main {
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
 }
+
+/*footer*/
+.about {
+  display: flex;
+  justify-content: flex-end;
+  margin: -1rem 1rem;
+}
+
 
