@@ -12,7 +12,7 @@ describe('weather display component', () => {
     render(
         <MyContext.Provider
             value={{
-              city: { name: 'New York', country: 'US' },
+              city: { id: '1', name: 'New York', country: 'US' },
               setCity: jest.fn(),
               cityHistory: [],
               setCityHistory: jest.fn()
