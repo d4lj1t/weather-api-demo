@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react'
 import Image from 'next/image'
 import { getCities } from '@/api/autocompleteCities'
 import styles from '@/styles/SearchBar.module.css'
@@ -15,7 +15,7 @@ export default function SearchBar (): React.ReactNode {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  const { setCity, cityHistory, setCityHistory } = useContext(MyContext)
+  const { setCity } = useContext(MyContext)
 
   function handleSearch (value: string): void {
     setValue(value)
@@ -45,9 +45,6 @@ export default function SearchBar (): React.ReactNode {
   function changeCity (selectedCity: City): void {
     setValue('')
     setCity(selectedCity)
-
-    const newCityHistory = [...cityHistory, selectedCity]
-    setCityHistory(newCityHistory)
   }
 
   return (

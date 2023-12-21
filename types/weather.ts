@@ -1,15 +1,15 @@
 export const defaultWeather: Weather = {
-    current: {
-        temp_c: "",
-        humidity: "",
-        wind_mph: "",
-    }
-};
+  current: {
+    temp_c: '',
+    humidity: '',
+    wind_mph: ''
+  }
+}
 
-export type Weather = {
-    current: {
-        temp_c: string,
-        humidity: string,
-        wind_mph: string,
-    }
-};
+export interface Weather {
+  current: {
+    temp_c: string
+    humidity: string
+    wind_mph: string
+  }
+}

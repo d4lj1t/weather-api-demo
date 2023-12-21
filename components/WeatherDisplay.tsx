@@ -3,9 +3,11 @@ import { MyContext } from '@/api/context'
 import { getWeather } from '@/api/weather'
 import styles from 'styles/WeatherDisplay.module.css'
 import { type Weather } from '@/types/weather'
+import { type PreviousSearchesType } from '@/types/previousSearches'
 
 export default function WeatherDisplay (): React.ReactNode {
   const { city } = useContext(MyContext)
+  const { setCityHistory } = useContext(MyContext)
   const [weatherData, setWeatherData] = useState<Weather>()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -18,6 +20,15 @@ export default function WeatherDisplay (): React.ReactNode {
         try {
           const data = await getWeather(city.name)
           setWeatherData(data)
+          const newCityHistory = {
+            name: city.name,
+            country: city?.country,
+            temperature: current?.temp_c,
+            humidity: current?.humidity,
+            windSpeed: current?.wind_mph
+          }
+
+          setCityHistory(prevCityHistory => [newCityHistory, ...prevCityHistory] as PreviousSearchesType[])
         } catch (error) {
           setError('Failed to fetch weather data.')
         } finally {
