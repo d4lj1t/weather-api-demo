@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+npm install - rpm I
+
 First, run the development server:
 
 ```bash
@@ -13,6 +15,8 @@ pnpm dev
 # or
 bun dev
 ```
+
+npm run test - to run unit tests
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
